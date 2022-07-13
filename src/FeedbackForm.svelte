@@ -6,34 +6,30 @@
     let feedbackText = '';
 </script>
 
-<div class="wrapper">
-    <Card class="card--full-width">
-        <form class="feedback-form__form" action="submit">
-            <h1 class="feedback-form__heading-primary">How would you rate your service with us?</h1>
-            <div class="feedback-form__input-section">
-                <div class="u-margin-y-big u-width-95 u-center-x">
-                    <RatingBox />
-                </div>
-                <div class="feedback-form__input-group">
-                    <input class="feedback-form__input" type="text" bind:value={feedbackText}>
-                    <div class="u-margin-x-small">
-                        <Button text="Send" disabled={feedbackText.length <= 10} on:btn:click={ ()=>{console.log('button clicked!')}}/>
-                    </div>
-                </div>
-                {#if feedbackText.length <= 10}
-                    <h2 class="feedback-form__error-heading">Text must be atleast 10 characters long</h2>
-                {/if}
+<Card class="card--full-width">
+    <form class="feedback-form__form" action="submit">
+        <h1 class="feedback-form__heading-primary">How would you rate your service with us?</h1>
+        <div class="feedback-form__input-section">
+            <div class="u-margin-y-big u-width-95 u-center-x">
+                <RatingBox />
             </div>
-        </form>
-    </Card>
-</div>
+            <div class="feedback-form__input-group">
+                <input class="feedback-form__input" type="text" bind:value={feedbackText}>
+                <div class="u-margin-x-small">
+                    <Button text="Send" disabled={feedbackText.length <= 10} on:btn:click={ ()=>{console.log('button clicked!')}}/>
+                </div>
+            </div>
+            {#if feedbackText.length <= 10}
+                <h2 class="feedback-form__error-heading">Text must be atleast 10 characters long</h2>
+            {/if}
+        </div>
+    </form>
+</Card>
 
 <style lang="scss">
     @import './scss/variables';
     @import './scss/utilities';
-    .wrapper{
-        margin: 8rem 0;
-    }
+    
 
     .feedback-form{
         &__heading-primary{

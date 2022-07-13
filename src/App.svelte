@@ -42,10 +42,13 @@
 	<h2 class="secondary-heading">{numberOfFeedbacks} Reviews</h2>
 	<h2 class="secondary-heading">Ratings Average: {averageRating}</h2>
 </div>
-<FeedbacksList {feedbacks} on:del:entry={handleDeleteEntry} />
+<div class="u-margin-bottom-huge">
+	<FeedbacksList {feedbacks} on:del:entry={handleDeleteEntry} />
+</div>
 
 <style lang="scss">
 	@import "./scss/_variables.scss";
+	@import './scss/utilities';
 
 	.wrapper{
 		margin-top: 8rem;

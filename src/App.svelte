@@ -29,10 +29,14 @@
 		let id = e.detail;
 		feedbacks = feedbacks.filter( i => i.id != id);
 	}
+
+	function handleNewFeedback({detail}){
+		feedbacks = [detail,...feedbacks];
+	}
 </script>
 
 <div class="wrapper">
-	<FeedbackForm />
+	<FeedbackForm on:new:feedback={handleNewFeedback}/>
 </div>
 <div class="stats-box">
 	<h2 class="secondary-heading">{numberOfFeedbacks} Reviews</h2>

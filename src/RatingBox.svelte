@@ -3,8 +3,23 @@
     let dispatcher = createEventDispatcher();
 
     let checkedValue = 10;
+    let checkBoxes = [];
+
     function handleRatingChange(e){
-        console.log(e.currentTarget.value);
+        dispatcher('chng:rating',checkedValue);
+    }
+
+    export function setRating(rating){
+        if(rating > 10)
+        {
+            console.log(`the rating value ${rating} is not between 1 and 10 (both inclusive)`);
+            return;
+        }
+
+        checkedValue = rating;
+        checkBoxes.forEach(function(box,i){
+            box.checked = (checkedValue === i + 1 );
+        });
     }
 </script>
 
@@ -12,7 +27,7 @@
 <div class="rate-box">
     {#each Array(10) as _, i}
         <div class="rate-box__group">
-            <input type="radio" class="rate-box__input" id={`${i+1}-star-checkbox`} value={i+1} on:change={handleRatingChange} name="rate-box" checked={checkedValue === i+1}>
+            <input type="radio" class="rate-box__input" id={`${i+1}-star-checkbox`} value={i+1} on:change={handleRatingChange} name="rate-box" checked={checkedValue === i+1} bind:this={checkBoxes[i]} >
             <label class="rate-box__label" for={`${i+1}-star-checkbox`}>{i+1}</label>
         </div>
     {/each}

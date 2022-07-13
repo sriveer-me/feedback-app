@@ -11,7 +11,7 @@
     }
 </script>
 
-<Card>
+<Card class="card--full-width">
     <div class="entry__rating">{feedback.rating}</div>
     <h1 class="entry__text">{feedback.text}</h1>
     <h1 class="entry__close" on:click={handleClose}>x</h1>

@@ -1,9 +1,38 @@
 <script>
+    import { v4 as uuidv4 } from 'uuid';
+    import {createEventDispatcher} from 'svelte';
+
     import Card from './Card.svelte';
     import Button from './Button.svelte';
     import RatingBox from './RatingBox.svelte';
 
+    let dispatcher = createEventDispatcher();
     let feedbackText = '';
+    let ratingBox;
+    let rating = 10;
+
+    function handleRatingChange({detail}){
+        rating = detail;
+    }
+
+    function handleButtonClick(){
+        if(feedbackText.length <= 10)
+        {
+            console.log('the send button should not be active when there are less than 10 characters inside the input box.');
+            return;
+        }
+
+        let feedback = {
+            id: uuidv4(),
+            rating: rating,
+            text: feedbackText
+        };
+
+        dispatcher('new:feedback',feedback);
+        
+        feedbackText = '';
+        ratingBox.setRating(10);
+    }
 </script>
 
 <Card class="card--full-width">
@@ -11,12 +40,12 @@
         <h1 class="feedback-form__heading-primary">How would you rate your service with us?</h1>
         <div class="feedback-form__input-section">
             <div class="u-margin-y-big u-width-95 u-center-x">
-                <RatingBox />
+                <RatingBox bind:this={ratingBox} on:chng:rating={handleRatingChange}/>
             </div>
             <div class="feedback-form__input-group">
                 <input class="feedback-form__input" type="text" bind:value={feedbackText}>
                 <div class="u-margin-x-small">
-                    <Button text="Send" disabled={feedbackText.length <= 10} on:btn:click={ ()=>{console.log('button clicked!')}}/>
+                    <Button text="Send" disabled={feedbackText.length <= 10} on:btn:click={handleButtonClick}/>
                 </div>
             </div>
             {#if feedbackText.length <= 10}

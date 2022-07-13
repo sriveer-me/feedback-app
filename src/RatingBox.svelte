@@ -6,7 +6,7 @@
     let checkBoxes = [];
 
     function handleRatingChange(e){
-        dispatcher('chng:rating',checkedValue);
+        dispatcher('chng:rating',parseInt(e.currentTarget.value));
     }
 
     export function setRating(rating){

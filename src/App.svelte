@@ -1,4 +1,5 @@
 <script>
+	import FeedbackForm from './FeedbackForm.svelte';
 	import FeedbacksList from './FeedbacksList.svelte';
 
 	let feedbacks = [
@@ -25,4 +26,5 @@
 	}
 </script>
 
+<FeedbackForm />
 <FeedbacksList {feedbacks} on:del:entry={handleDeleteEntry} />

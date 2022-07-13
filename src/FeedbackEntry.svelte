@@ -51,6 +51,7 @@
         &__text{
             margin-top: 1rem;
             font-weight: 400;
+            font-size: 1.8rem;
         }
     }
 </style>

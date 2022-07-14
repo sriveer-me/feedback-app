@@ -2,7 +2,7 @@
 
 ## Feedback App Using Svelte
 
-This is my first attempt at using svelte, This project was done so as to get a first impression of the competencies of Svelte.
+This is my first attempt at using Svelte, This project was done so as to get a first impression of the competencies of Svelte.
 
 ## Table of contents
 

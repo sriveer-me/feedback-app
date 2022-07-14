@@ -2,7 +2,7 @@
 
 ## Feedback App Using Svelte
 
-This is my first attemp at using svelte, This project was done so as to get a first impression of the competencies of svelte.
+This is my first attempt at using svelte, This project was done so as to get a first impression of the competencies of Svelte.
 
 ## Table of contents
 
@@ -51,4 +51,4 @@ Writing this simple project gave me insights on how powerful svelte can be.
 
 - Website - [Sriveer Neerukonda (veeru)](https://veeru-portfolio.netlify.app/)
 - Frontend Mentor - [@veeru-neerukonda](https://www.frontendmentor.io/profile/veeru-neerukonda)
-- Twitter - [@empyrea21882174](https://twitter.com/empyrea21882174)
+- Twitter - [@empyrean__sama](https://twitter.com/empyrean__sama)
